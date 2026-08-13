@@ -622,7 +622,7 @@ bool OSISXHTML::handleToken(SWBuf &buf, const char *token, BasicFilterUserData *
 			}
 		}
 		// <catchWord> & <rdg> tags (italicize)
-		else if (!strcmp(tag.getName(), "rdg") || !strcmp(tag.getName(), "catchWord") || !strcmp(tag.getName(), "inscription")) {
+		else if (!strcmp(tag.getName(), "app") || !strcmp(tag.getName(), "lem") || !strcmp(tag.getName(), "rdg") || !strcmp(tag.getName(), "catchWord") || !strcmp(tag.getName(), "inscription")) {
 			if ((!tag.isEndTag()) && (!tag.isEmpty())) {
 				outText("<span class=\"", buf, u);
 				outText(tag.getName(), buf, u);
