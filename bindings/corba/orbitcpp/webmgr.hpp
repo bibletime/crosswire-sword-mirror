@@ -123,16 +123,24 @@ SWLog::getSystemLog()->logDebug("libsword: WebMgr::createAllModules extraConfig 
 
 		// add our special filters
 		if (module->getConfig().has("Feature", "GreekDef")) {
-			defaultGreekLex = module;
+			if (!defaultGreekLex || module->getConfig().has("Feature", "GreekDefDefault")) {
+				defaultGreekLex = module;
+			}
 		}
 		if (module->getConfig().has("Feature", "HebrewDef")) {
-			defaultHebLex = module;
+			if (!defaultHebLex || module->getConfig().has("Feature", "HebrewDefDefault")) {
+				defaultHebLex = module;
+			}
 		}
 		if (module->getConfig().has("Feature", "GreekParse")) {
-			defaultGreekParse = module;
+			if (!defaultGreekParse || module->getConfig().has("Feature", "GreekParseDefault")) {
+				defaultGreekParse = module;
+			}
 		}
 		if (module->getConfig().has("Feature", "HebrewParse")) {
-			defaultHebParse = module;
+			if (!defaultHebParse || module->getConfig().has("Feature", "HebrewParseDefault")) {
+				defaultHebParse = module;
+			}
 		}
 		if (module->getConfig().has("GlobalOptionFilter", "ThMLVariants")) {
 			OptionFilterMap::iterator it = optionFilters.find("ThMLVariants");
